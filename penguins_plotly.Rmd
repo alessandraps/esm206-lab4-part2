@@ -7,5 +7,31 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+
+# Packages that we need tidyverse, palmerpenguins, plotly, and DT
+
+library(tidyverse)
+library(palmerpenguins)
+library(plotly)
+library(DT)
+
+```
+
+Create an interactive plot with this data 
+- Scatterplot of penguin flipper_length_mm (x-axis) versus body_mass_g (y-axis), with points having different colors based on species.
+
+- Use 'view(oenguins)' to see the data set.
+```{r}
+penguins_graph <- ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = species))
+
+penguins_graph # calling out the graoh 
+
+ggplotly(penguins_graph) # makes an interactive graph! SO COOL!
+```
+
+```{r}
+datatable(penguins)
+
 ```
 
